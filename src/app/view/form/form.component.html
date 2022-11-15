@@ -1,0 +1,62 @@
+<form [formGroup]="projectForm"  (ngSubmit)="projectFormSubmit()" class="border p-3 rounded-3">
+  <div class="row g-0">
+    <div class="col text-center p-2 mb-3 bg-light">
+      <span class="fs-3">Project Form</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="projectName"  class="form-label">project Name</label>
+<!--      <input type="text" class="form-control" id="projectName" formControlName="projectName">-->
+      <select  [(ngModel)]="project" class="form-control" formControlName="projectName" id="projectName"  (change)="getDescription()">
+
+        <option *ngFor="let proName of projectFullDetails" [value]="proName.projectName">{{proName.projectName}}</option>
+
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="description"  class="form-label">Description</label>
+      <textarea id="'description"  readonly class="form-control" formControlName="description"  [value]="description" >{{description}}</textarea>
+    </div>
+
+
+    <!-- <textarea class="form-control" *ngFor="let des of proDescription" formControlName="description"
+           id="exampleFormControlTextarea1" rows="3">{{des}}</textarea> -->
+
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="clientName" class="form-label">Client Name</label>
+      <input type="text" class="form-control" id="clientName" formControlName="clientName">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="division" class="form-label">Divition</label>
+      <input type="text" class="form-control" id="division" formControlName="division">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      <label for="projectManager" class="form-label">Project Manager</label>
+      <input type="text" class="form-control" id="projectManager" formControlName="projectManager">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">submit</button>
+      </div>
+    </div>
+
+  </div>
+
+</form>
